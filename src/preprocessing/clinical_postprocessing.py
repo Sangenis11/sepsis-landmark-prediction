@@ -113,3 +113,26 @@ df.to_csv(OUTPUT_PATH, index=False)
 print(f"\n🎯 Final modeling-ready dataset saved to: {OUTPUT_PATH}")
 print("Final shape:", df.shape)
 
+# =====================================================
+# 4️⃣ REMOVE REDUNDANT BP MISSINGNESS INDICATORS
+# =====================================================
+cols_to_drop = ["sbp_ni_mean_missing", "dbp_ni_mean_missing"]
+existing_cols = [c for c in cols_to_drop if c in df.columns]
+
+df.drop(columns=existing_cols, inplace=True)
+print("✅ Removed redundant SBP/DBP missingness indicators")
+
+# =====================================================
+# 5️⃣ FINAL SANITY CHECKS
+# =====================================================
+required_cols = ["map_ni", "map_ni_missing", "hypotension"]
+
+for col in required_cols:
+    if col not in df.columns:
+        raise ValueError(f"Required column missing after processing: {col}")
+
+print("📊 MAP missingness distribution:")
+print(df["map_ni_missing"].value_counts())
+
+print("📊 Hypotension distribution:")
+print(df["hypotension"].value_counts())
