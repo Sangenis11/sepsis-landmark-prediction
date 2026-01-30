@@ -1,1 +1,91 @@
+"""
+Preprocessing Step 7: Assemble final analysis-ready feature matrix.
+
+This script selects the final predictor set used in the primary and
+sensitivity models and removes unused variables.
+"""
+
+import os
+import pandas as pd
+
+# ==============================
+# USER CONFIG
+# ==============================
+INPUT_PATH = "data/modeling_dataset_ready.csv"
+OUTPUT_PATH = "data/analysis_dataset_noBMI.csv"
+
+os.makedirs("data", exist_ok=True)
+
+# ==============================
+# LOAD DATA
+# ==============================
+df = pd.read_csv(INPUT_PATH)
+print("Initial shape:", df.shape)
+
+# ==============================
+# DEFINE FEATURE SETS
+# ==============================
+
+structural_cols = [
+    "subject_id",
+    "landmark_hr",
+    "sepsis_next_6h"
+]
+
+primary_features = [
+    # Physiology
+    "heart_rate_max",
+    "spo2_min",
+    "temperature_max",
+    "rr_max",
+    "map_ni",
+
+    # Neurology
+    "gcs_min_cat_num",
+    "gcs_min_missing",
+
+    # Organ support
+    "vasopressor_mean",
+    "crrt_mean",
+    "invasive_mean",
+    "noninvasive_mean",
+    "highflow_mean",
+
+    # Demographics / baseline
+    "anchor_age",
+    "gender",
+    "elixhauser_cat_num",
+    "race_grouped",
+
+    # Informative missingness
+    "map_ni_missing"
+]
+
+sensitivity_features = [
+    "hypotension",
+    "gcs_severe"
+]
+
+final_features = structural_cols + primary_features + sensitivity_features
+
+# ==============================
+# SAFETY CHECK
+# ==============================
+missing_cols = [c for c in final_features if c not in df.columns]
+if missing_cols:
+    raise ValueError(f"Missing expected columns: {missing_cols}")
+
+# ==============================
+# SUBSET DATA
+# ==============================
+df_final = df[final_features].copy()
+
+print("✅ Features selected successfully")
+print("Final shape:", df_final.shape)
+
+# ==============================
+# SAVE OUTPUT
+# ==============================
+df_final.to_csv(OUTPUT_PATH, index=False)
+print(f"\n🎯 Analysis-ready dataset saved to: {OUTPUT_PATH}")
 
