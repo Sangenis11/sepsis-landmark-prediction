@@ -97,27 +97,27 @@ Models are assessed using:
 
 Discrimination
 
-AUROC
+- AUROC
 
-AUPRC
+- AUPRC
 
-Threshold-based performance
+- Threshold-based performance
 
-Sensitivity
+- Sensitivity
 
-Specificity
+- Specificity
 
-Precision
+- Precision
 
-F1-score
+- F1-score
 
-Calibration
+- Calibration
 
-Brier score
+- Brier score
 
-Calibration curves
+- Calibration curves
 
-Calibration slope & intercept
+- Calibration slope & intercept
 
 All evaluations are performed on patient-level held-out test data.
 
