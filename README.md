@@ -124,17 +124,17 @@ All evaluations are performed on patient-level held-out test data.
 🔍 Interpretability
 To ensure clinical transparency:
 
-Logistic Regression
+## Logistic Regression
 
-Odds ratios with 95% confidence intervals
+- Odds ratios with 95% confidence intervals
 
-Forest plots
+- Forest plots
 
-Ensemble Models
+## Ensemble Models
 
-Permutation feature importance (ΔAUROC)
+- Permutation feature importance (ΔAUROC)
 
-Landmark-specific importance patterns
+- Landmark-specific importance patterns
 
 ▶️ How to Run
 1️⃣ Clone repository
@@ -163,19 +163,19 @@ All required Python libraries are listed in requirements.txt.
 
 Main dependencies:
 
-pandas
+- pandas
 
-numpy
+- numpy
 
-scikit-learn
+- scikit-learn
 
-xgboost
+- xgboost
 
-matplotlib
+- matplotlib
 
-scipy
+- scipy
 
-joblib
+- joblib
 
 ## 🔐 Data Availability
 Due to data use agreements (e.g., MIMIC-IV), the raw dataset cannot be shared.
