@@ -75,7 +75,7 @@ Comorbidity	Elixhauser category
 Missingness indicators	For key physiologic variables
 ## ⚙️ Repository Structure
 
-```text
+
 ├── data/
 │   ├── raw/                  # (Not shared) Source dataset
 │   ├── processed/            # Cleaned and modeling-ready datasets
