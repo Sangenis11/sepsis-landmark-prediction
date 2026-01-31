@@ -74,6 +74,7 @@ Demographics	Age, sex, race
 Comorbidity	Elixhauser category
 Missingness indicators	For key physiologic variables
 ⚙️ Repository Structure
+```text
 ├── data/
 │   ├── raw/                  # (Not shared) Source dataset
 │   ├── processed/            # Cleaned and modeling-ready datasets
@@ -90,8 +91,10 @@ Missingness indicators	For key physiologic variables
 │   ├── evaluation/           # Metrics, calibration, comparison
 │   ├── interpretability/     # Odds ratios & permutation importance
 │
+├── results/                  # Model outputs, tables, figures
 ├── requirements.txt
 └── README.md
+
 
 
 📊 Evaluation Metrics
