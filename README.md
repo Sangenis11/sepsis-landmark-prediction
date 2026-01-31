@@ -138,10 +138,17 @@ Landmark-specific importance patterns
 
 ▶️ How to Run
 1️⃣ Clone repository
+```text
 git clone https://github.com/yourusername/sepsis-landmark-prediction.git
 cd sepsis-landmark-prediction
+```
+---
 2️⃣ Install dependencies
+```text
 pip install -r requirements.txt
+```
+---
+
 3️⃣ Run pipeline step-by-step
 Preprocessing → Modeling → Evaluation → Interpretability
 
@@ -150,7 +157,8 @@ Examples:
 python src/modeling/standard/run_two_stage_models.py
 python src/modeling/balanced_ensemble/lr/run_balanced_lr.py
 python src/evaluation/calibration_balanced_rf_lm18.py
-📦 Requirements
+
+##📦 Requirements
 All required Python libraries are listed in requirements.txt.
 
 Main dependencies:
@@ -169,15 +177,15 @@ scipy
 
 joblib
 
-🔐 Data Availability
+## 🔐 Data Availability
 Due to data use agreements (e.g., MIMIC-IV), the raw dataset cannot be shared.
 Scripts are designed to run on similarly structured ICU datasets.
 
-📖 Citation
+## 📖 Citation
 If you use this codebase in your research, please cite the associated manuscript (under preparation).
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License — free to use, modify, and distribute with attribution.
 
-🤝 Acknowledgment
+## 🤝 Acknowledgment
 Developed as part of academic research in clinical risk prediction and interpretable machine learning for critical care.
